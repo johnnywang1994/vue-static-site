@@ -1,6 +1,8 @@
 {
   "name": "vue-static-site",
   "version": "1.0.0",
+  "author": "johnnywang",
+  "description": "A Vue3.x powered static site generator in runtime compile",
   "main": "build/vue-static-site.min.js",
   "module": "build/vue-static-site.min.js",
   "license": "MIT",
@@ -8,6 +10,14 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnnywang1994/vue-static-site.git"
+  },
+  "bugs": {
+    "url": "https://github.com/johnnywang1994/vue-static-site/issues"
+  },
+  "homepage": "https://github.com/johnnywang1994/vue-static-site#readme",
   "eslintConfig": {
     "extends": [
       "./config/eslint"
@@ -72,5 +82,10 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+  ],
+  "keywords": [
+    "npm",
+    "vue static",
+    "generator"
   ]
 }
