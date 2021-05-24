@@ -29,7 +29,7 @@ $ yarn add express nodemon socket.io
 
 目錄結構：
 
-```
+```bash
 --public
 --server
   --import

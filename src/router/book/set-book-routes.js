@@ -10,13 +10,15 @@ import compileMarked from '../marked';
  */
 async function setBookRouteComponent(route) {
   if (route.file) {
-    const { data: template } = await axios.get(route.file);
+    const { data: rawText } = await axios.get(route.file);
     // match for nav title
-    const title = template.match(/#\s{1}(.*)/);
+    const title = rawText.match(/#\s{1}(.*)/);
+    const { template, components } = compileMarked(rawText);
 
     route.title = title ? title[1] : 'no-title';
     route.component = {
-      template: compileMarked(template),
+      template,
+      components,
     };
     route.file = null;
     delete route.file;

@@ -211,7 +211,7 @@ const settings = {
 above will serve folder `/docs/book-1` to vue-router `/book-1`, and `/docs/book-2` to `book-2`, you will see two links added in navbar.
 
 
-### customRoutes
+#### customRoutes
 - type: `array[route object]` 
 configs for custom route, you can use vue sfc file.
 
@@ -247,7 +247,7 @@ const settings = {
 
 > using custom route will not auto import `navbar` & `sidebar` by default, you will need to add it manually
 
-```vue
+```html
 <template>
   <navbar />
   <sidebar />
@@ -264,7 +264,7 @@ export default {
 ```
 
 
-### layout
+#### layout
 - type: `object`  
 define layouts
 
@@ -281,12 +281,11 @@ const settings = {
 
 
 
-
 ### Layout feature
 
 1. Create layout component  
 you can use layout to reuse the UI, example for a `DefaultLayout`:
-```vue
+```html
 <template>
   <navbar />
   <sidebar />
@@ -324,6 +323,49 @@ const settings = {
 ```
 
 this way, the component will be wrapped by specific layout component.
+
+
+### Vue SFC component(Experiment)
+you can use the basic SFC in markdown as following:
+
+```html
+<template>
+  <div class="counter">
+    <span @click="count -= 1">-</span>
+    <b>{{ count }}</b>
+    <span @click="count += 1">+</span>
+  </div>
+</template>
+
+<script>
+const { ref } = Vue;
+
+export default {
+  setup() {
+    const count = ref(0);
+    return { count };
+  },
+}
+</script>
+
+<style lang="scss">
+.counter {
+  b {
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+  }
+  > span {
+    font-size: 20px;
+    padding: 1px 3px;
+    margin: 0 8px;
+    border: 1px solid;
+    cursor: pointer;
+  }
+}
+</style>
+```
+
 
 
 ## Compatibility

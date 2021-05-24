@@ -1,6 +1,39 @@
 import marked from 'marked';
+import { matchData, randomStr, setStyle } from './utils';
+
+let tempComponents;
 
 const customRenderer = {
+  code(code, _lang) {
+    let result = '';
+    let lang = _lang;
+    if (lang === 'vue') {
+      const { template, script: _script, style } = matchData(code);
+      const script = _script.replace('export default ', 'return ');
+
+      // handle script
+      const component = script
+        ? new Function('', script)()
+        : {};
+      const id = component.name || randomStr();
+      component.template = template;
+      // TODO: need to merge route components with source components
+      component.components = tempComponents;
+      tempComponents[id] = component;
+
+      // handle style
+      if (style) setStyle(style);
+
+      result += `<${id} />`;
+      lang = 'html';
+      return result;
+    }
+    const codeNode = document.createElement('code');
+    const text = document.createTextNode(code);
+    codeNode.appendChild(text);
+    codeNode.setAttribute('class', `language-${lang}`);
+    return `<pre>${codeNode.outerHTML}</pre>`;
+  },
   heading(text, level, rawText) {
     const nText = rawText.replace(/\s/gi, '-');
     return `
@@ -27,7 +60,13 @@ const markedOptions = {
 marked.use({ renderer: customRenderer });
 
 function compileMarked(template) {
-  return marked(template, markedOptions);
+  const components = {};
+  tempComponents = components;
+  const compiledTemplate = marked(template, markedOptions);
+  return {
+    template: compiledTemplate,
+    components,
+  }
 }
 
 export default compileMarked;
