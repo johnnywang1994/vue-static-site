@@ -1,0 +1,31 @@
+@import './reset.scss';
+
+body {
+  font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+.photofix {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.2s;
+  }
+  &:active > img {
+    transform: scale(1.05);
+  }
+  @media (min-width: 952px) {
+    &:hover > img {
+      transform: scale(1.05);
+    }
+  }
+}

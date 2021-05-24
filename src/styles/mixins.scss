@@ -1,0 +1,63 @@
+@mixin fullcover() {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@mixin alignCenter() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flexCenter($direction: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin scrollBar($width: 0.03rem, $color: red, $bgcolor: red, $direction: vertical) {
+  &::-webkit-scrollbar {
+    @if $direction == vertical {
+      width: $width;
+    } @else {
+      height: $width;
+    }
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 1rem $bgcolor;
+  }
+  &::-webkit-scrollbar-thumb:#{$direction} {
+    background-color: $color;
+    border-radius: 10px;
+  }
+}
+
+@mixin hideScrollBar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+}
+
+@mixin noTouchOrSelect {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@mixin activeScale {
+  transition: all 0.2s;
+  &:hover {
+    filter: brightness(1.2);
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}
