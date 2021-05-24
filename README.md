@@ -4,6 +4,8 @@ A simple static site generator powered by Vuejs & http ajax.
 
 > Since this generator is served by ajax, make sure you run a static server to serve your folder.
 
+[See DEMO](https://johnnywang1994.herokuapp.com/)
+
 
 ## Usage
 
