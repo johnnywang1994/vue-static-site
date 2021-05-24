@@ -33,13 +33,13 @@ Make sure you import the dependencies as following:
   <script src="https://cdn.jsdelivr.net/npm/vuex@4.0.0/dist/vuex.global.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
   <!-- import vue-static-site css -->
-  <link rel="stylesheet" href="/vue-static-site.min.css">
+  <link rel="stylesheet" href="https://johnnywang1994.github.io/cdn/vue-static-site.min.css">
 </head>
 <body>
   <div id="app">Loading...</div>
 
   <!-- import vue-static-site js -->
-  <script src="/vue-static-site.min.js"></script>
+  <script src="https://johnnywang1994.github.io/cdn/vue-static-site.min.js"></script>
   <script>
     initSite(); // init site
   </script>
