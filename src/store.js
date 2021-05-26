@@ -2,12 +2,14 @@ import { createStore } from 'vuex';
 
 const UPDATE_SIDEBAR_OPEN = 'UPDATE_SIDEBAR_OPEN';
 
-const appStates = ({ routes, sidebarRoutes, settings }) => () => ({
-  sidebarRoutes,
-  globalRoutes: routes,
-  globalSettings: settings,
-  openSidebar: false,
-})
+const appStates =
+  ({ routes, sidebarRoutes, settings }) =>
+  () => ({
+    sidebarRoutes,
+    globalRoutes: routes,
+    globalSettings: settings,
+    openSidebar: false,
+  });
 
 const actions = {
   updateSidebar({ commit }, bool) {

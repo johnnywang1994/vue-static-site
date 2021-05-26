@@ -12,15 +12,15 @@ import NavLinks from '../NavLinks.vue';
 
 export default {
   name: 'SideBar',
+  components: {
+    SidebarLinks,
+    NavLinks,
+  },
   props: {
     fixpc: {
       type: Boolean,
       default: false,
     },
-  },
-  components: {
-    SidebarLinks,
-    NavLinks,
   },
   computed: {
     ...mapState(['sidebarRoutes', 'openSidebar']),
@@ -55,7 +55,7 @@ export default {
       display: block;
     }
   }
-  
+
   > .sidebar-links {
     padding: 1.5rem 0;
   }
@@ -63,12 +63,12 @@ export default {
   .nav-links {
     display: none;
     border-bottom: 1px solid #eaecef;
-    padding: .5rem 0 .75rem;
+    padding: 0.5rem 0 0.75rem;
     .nav-item {
       display: block;
       line-height: 1.25rem;
       font-size: 1.1em;
-      padding: .5rem 0 .5rem 1.5rem;
+      padding: 0.5rem 0 0.5rem 1.5rem;
       &:first-child {
         margin-left: 0;
       }

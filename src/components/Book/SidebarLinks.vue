@@ -1,9 +1,6 @@
 <template>
   <ul class="sidebar-links">
-    <li
-      v-for="(route, index) in routes"
-      :key="'route' + route.title"
-    >
+    <li v-for="(route, index) in routes" :key="'route' + route.title">
       <template v-if="route.children">
         <section :class="{ 'sidebar-group': group }">
           <h3 class="sidebar-heading" @click="onOpenTab(index)">
@@ -13,7 +10,7 @@
                 'arrow',
                 opened[index] || $route.path.includes(route.path)
                   ? 'down'
-                  : 'right'
+                  : 'right',
               ]"
             ></span>
           </h3>
@@ -55,16 +52,16 @@ export default {
       opened: [],
     };
   },
+  created() {
+    this.opened = Array(this.routes.length).fill(false);
+  },
   methods: {
     ...mapActions(['updateSidebar']),
     onOpenTab(index) {
       this.opened[index] = !this.opened[index];
     },
   },
-  created() {
-    this.opened = Array(this.routes.length).fill(false);
-  },
-}
+};
 </script>
 
 <style lang="scss">
@@ -115,7 +112,7 @@ export default {
     font-weight: 400;
     color: #2c3e50;
     cursor: pointer;
-    border-left: .25rem solid transparent;
+    border-left: 0.25rem solid transparent;
     padding: 0.35rem 1rem 0.35rem 1.25rem;
     line-height: 1.4;
     width: 100%;

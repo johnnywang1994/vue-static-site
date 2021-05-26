@@ -15,14 +15,15 @@ export function randomStr(len = 8) {
 }
 
 export function matchData(data) {
-  const matchTemplate = data.match(/<template\b[^>]*>([\s\S]*?)<\/template>/) || [];
+  const matchTemplate =
+    data.match(/<template\b[^>]*>([\s\S]*?)<\/template>/) || [];
   const matchScript = data.match(/<script\b[^>]*>([\s\S]*?)<\/script>/) || [];
   const matchStyle = data.match(/<style\b[^>]*>([\s\S]*?)<\/style>/) || [];
   return {
     template: matchTemplate[1] || '',
     script: matchScript[1] || '',
     style: matchStyle[1] || '',
-  }
+  };
 }
 
 export function setStyle(text) {

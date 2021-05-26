@@ -18,21 +18,19 @@ export default {
     Sidebar,
     MarkdownPage,
   },
+  mounted() {
+    this.checkHeaderAnchor();
+  },
   methods: {
     checkHeaderAnchor() {
       const { hash } = window.location;
       if (hash) {
         setTimeout(() => {
-          const target = document.querySelector(
-            decodeURIComponent(hash)
-          );
+          const target = document.querySelector(decodeURIComponent(hash));
           window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
         }, 500);
       }
     },
-  },
-  mounted() {
-    this.checkHeaderAnchor();
   },
 };
 </script>

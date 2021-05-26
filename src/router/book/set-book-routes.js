@@ -25,7 +25,6 @@ async function setBookRouteComponent(route) {
   }
 }
 
-
 /**
  * setRouteFolder
  * @param {*} routes

@@ -3,8 +3,8 @@ import getBookRoutes from './get-book-routes';
 import Book from '../../views/Book.vue';
 
 function flattenRoutes(routes) {
-  return routes.reduce((t, c) =>
-    t.concat(c.children ? flattenRoutes(c.children) : [c]),
+  return routes.reduce(
+    (t, c) => t.concat(c.children ? flattenRoutes(c.children) : [c]),
     [],
   );
 }
@@ -19,7 +19,7 @@ async function fetchBookRoute(docRoute) {
   return {
     sidebarRoute: routes,
     docRoutes: flattenRoutes(routes), // routes without structure
-  }
+  };
 }
 
 async function fetchBookRoutes(settings) {
@@ -33,13 +33,13 @@ async function fetchBookRoutes(settings) {
     bookRoutes.forEach((bookRoute) => {
       bookRoute.component = Book;
       childrens.push(fetchBookRoute(bookRoute));
-    })
+    });
 
     const result = await Promise.all(childrens);
     result.forEach(({ docRoutes, sidebarRoute }, index) => {
       bookRoutes[index].children = docRoutes;
       sidebarRoutes[bookRoutes[index].path] = sidebarRoute;
-    })
+    });
   }
 
   return {

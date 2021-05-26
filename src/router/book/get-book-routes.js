@@ -2,7 +2,7 @@ import axios from 'axios';
 
 /**
  * parseFileList
- * @param {*} path 
+ * @param {*} path
  * description: parse folder filelist to routes
  */
 async function parseFileList(fileList, parentPath, docRoute) {
@@ -22,12 +22,12 @@ async function parseFileList(fileList, parentPath, docRoute) {
         path: `${docRoute.path}${path || '/'}`,
         file: `${docRoute.source}${routePath}`,
         component: null,
-      })
+      });
     } else {
       // parse filelist recursive
       promises.push(getBookRoutes(docRoute, routePath));
     }
-  })
+  });
 
   const result = await Promise.all(promises);
   result.forEach(({ path, routes: children }) => {

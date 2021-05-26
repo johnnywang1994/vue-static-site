@@ -1,6 +1,7 @@
 (function(global) {
 
   const settings = {
+    cache: true,
     // global config
     sitename: 'Johnny Wang Blog',
     // config for default home page

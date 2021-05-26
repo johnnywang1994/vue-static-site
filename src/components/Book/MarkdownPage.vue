@@ -7,14 +7,14 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'MarkdownPage',
   methods: {
     ...mapActions(['updateSidebar']),
   },
-}
+};
 </script>
 
 <style lang="scss">

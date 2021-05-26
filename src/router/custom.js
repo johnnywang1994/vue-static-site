@@ -9,10 +9,12 @@ async function fetchCustomRoute(customRoute, layout) {
     // wrap component in layout
     if (settingLayout) {
       customRoute.component = settingLayout;
-      customRoute.children = [{
-        path: '',
-        component,
-      }];
+      customRoute.children = [
+        {
+          path: '',
+          component,
+        },
+      ];
       customRoute.layout = null;
       delete customRoute.layout;
     } else {
@@ -30,7 +32,7 @@ async function fetchCustomRoutes(settings) {
     const templates = [];
     customRoutes.forEach((customRoute) => {
       templates.push(fetchCustomRoute(customRoute, layout));
-    })
+    });
 
     await Promise.all(templates);
   }

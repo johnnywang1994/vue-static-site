@@ -4,7 +4,6 @@ import fetchCustomRoutes from './custom';
 import Home from '../views/Home.vue';
 
 async function getRoutes(settings) {
-
   const layouts = await fetchLayouts(settings);
   settings.layout = layouts;
 
@@ -13,11 +12,15 @@ async function getRoutes(settings) {
   const customRoutes = await fetchCustomRoutes(settings);
 
   const routes = [
-    ...(settings.homeConfig ? [{
-      name: 'Home',
-      path: '/',
-      component: Home,
-    }] : []),
+    ...(settings.homeConfig
+      ? [
+          {
+            name: 'Home',
+            path: '/',
+            component: Home,
+          },
+        ]
+      : []),
     ...bookRoutes,
     ...customRoutes,
   ];

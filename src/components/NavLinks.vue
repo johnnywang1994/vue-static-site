@@ -20,7 +20,7 @@ export default {
   computed: {
     ...mapState(['globalRoutes']),
   },
-}
+};
 </script>
 
 <style lang="scss">

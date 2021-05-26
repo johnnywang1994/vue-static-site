@@ -58,7 +58,7 @@ export default {
   methods: {
     ...mapActions(['updateSidebar']),
   },
-}
+};
 </script>
 
 <style lang="scss">
@@ -117,9 +117,9 @@ export default {
       font-size: 1.2rem;
       color: #fff;
       background-color: #3eaf7c;
-      padding: .8rem 1.6rem;
+      padding: 0.8rem 1.6rem;
       border-radius: 4px;
-      transition: background-color .1s ease;
+      transition: background-color 0.1s ease;
       box-sizing: border-box;
       border-bottom: 1px solid #389d70;
       &:hover {
@@ -173,7 +173,7 @@ export default {
       }
     }
   }
-  
+
   .footer {
     padding: 2.5rem;
     border-top: 1px solid #eaecef;

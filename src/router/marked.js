@@ -12,9 +12,7 @@ const customRenderer = {
       const script = _script.replace('export default ', 'return ');
 
       // handle script
-      const component = script
-        ? new Function('', script)()
-        : {};
+      const component = script ? new Function('', script)() : {};
       const id = component.name || randomStr();
       component.template = template;
       // TODO: need to merge route components with source components
@@ -66,7 +64,7 @@ function compileMarked(template) {
   return {
     template: compiledTemplate,
     components,
-  }
+  };
 }
 
 export default compileMarked;

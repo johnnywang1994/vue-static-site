@@ -8,7 +8,6 @@ import getRoutes from './route';
  * description: create router by looping folder
  */
 async function getRouter(settings) {
-
   const { routes, sidebarRoutes } = await getRoutes(settings);
 
   // create router
