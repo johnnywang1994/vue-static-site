@@ -1,6 +1,6 @@
 {
   "name": "vue-static-site",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "johnnywang",
   "description": "A Vue3.x powered static site generator in runtime compile",
   "main": "build/vue-static-site.min.js",
