@@ -295,9 +295,8 @@ this will auto cache your CDN dependencies and local .md, .vue files for 7 days.
 And there will be 1 day cached for unexpected offline situation. So that user can browse your site even when its network is not stable.
 
 ```js
-const settings = {
-  cache: 'https://johnnywang1994.github.io/cdn/vue-static-site.sw.js',
-};
+// service-worker.js
+importScripts('https://johnnywang1994.github.io/cdn/vue-static-site.sw.js');
 ```
 
 
