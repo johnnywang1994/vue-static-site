@@ -1,7 +1,7 @@
 (function(global) {
 
   const settings = {
-    cache: true,
+    cache: '/service-worker.js',
     // global config
     sitename: 'Johnny Wang Blog',
     // config for default home page

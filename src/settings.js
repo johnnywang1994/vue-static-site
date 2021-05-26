@@ -7,7 +7,7 @@ function fetchSettings() {
       if (settings.cache && 'serviceWorker' in navigator) {
         // Use the window load event to keep the page load performant
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js');
+          navigator.serviceWorker.register(settings.cache);
         });
       }
       resolve(window.__md_settings__);
