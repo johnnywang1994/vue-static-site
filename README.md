@@ -292,8 +292,6 @@ here's a default service-worker made with Google WorkBox:
 
 this will auto cache your CDN dependencies and local .md, .vue files for 7 days.
 
-And there will be 1 day cached for unexpected offline situation. So that user can browse your site even when its network is not stable.
-
 ```js
 // service-worker.js
 importScripts('https://johnnywang1994.github.io/cdn/vue-static-site.sw.js');
@@ -345,7 +343,7 @@ const settings = {
 this way, the component will be wrapped by specific layout component.
 
 
-### Vue SFC component(Experiment)
+### Vue SFC component
 you can use the basic SFC in markdown as following:
 
 ```html
@@ -361,6 +359,7 @@ you can use the basic SFC in markdown as following:
 const { ref } = Vue;
 
 export default {
+  name: 'Counter',
   setup() {
     const count = ref(0);
     return { count };
@@ -384,6 +383,14 @@ export default {
   }
 }
 </style>
+```
+
+And the component will be shared in the same markdown file(same route)
+
+```vue
+<template>
+  <counter />
+</template>
 ```
 
 

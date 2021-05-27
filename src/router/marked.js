@@ -15,8 +15,6 @@ const customRenderer = {
       const component = script ? new Function('', script)() : {};
       const id = component.name || randomStr();
       component.template = template;
-      // TODO: need to merge route components with source components
-      component.components = tempComponents;
       tempComponents[id] = component;
 
       // handle style
@@ -61,6 +59,16 @@ function compileMarked(template) {
   const components = {};
   tempComponents = components;
   const compiledTemplate = marked(template, markedOptions);
+  // merge route components to each component
+  // so that we can share components in the same route
+  Object.keys(components).forEach((name) => {
+    const mergedComponents = {
+      ...components[name].components,
+      ...tempComponents,
+    };
+    components[name].components = mergedComponents;
+  });
+
   return {
     template: compiledTemplate,
     components,
