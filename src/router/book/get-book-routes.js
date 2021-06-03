@@ -13,7 +13,7 @@ async function parseFileList(fileList, parentPath, docRoute) {
   fileList.forEach((filename) => {
     if (filename === 'index') return;
     const routePath = `${parentPath}/${filename}`;
-    const [, pathname, exp] = filename.match(/([^.]*).{1}(\w+)/);
+    const [, pathname, exp] = filename.match(/([^.]*)\.?(\w+)?/);
 
     if (exp === 'md') {
       const isIndex = filename === (bookConfig.index || 'README.md');
