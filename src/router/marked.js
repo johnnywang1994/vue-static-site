@@ -22,13 +22,12 @@ const customRenderer = {
 
       result += `<${id} />`;
       lang = 'html';
-      return result;
     }
     const codeNode = document.createElement('code');
     const text = document.createTextNode(code);
     codeNode.appendChild(text);
     codeNode.setAttribute('class', `language-${lang}`);
-    return `<pre>${codeNode.outerHTML}</pre>`;
+    return `${result}<pre v-pre>${codeNode.outerHTML}</pre>`;
   },
   heading(text, level, rawText) {
     const nText = rawText.replace(/\s/gi, '-');
